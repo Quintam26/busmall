@@ -1,0 +1,14 @@
+13 lines (10 sloc)  247 Bytes
+# The files and folders listed here will NOT be tracked by git
+guide/
+
+# Mac Droppings
+*/.DS_Store
+
+# Logs
+logs
+*.log
+
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
