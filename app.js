@@ -31,3 +31,13 @@ images.push(new Product('img/unicorn.jpg', 'unicorn'));
 images.push(new Product('img/usb.jpg', 'usb'));
 images.push(new Product('img/water-can.jpg', 'water-can'));
 images.push(new Product('img/wine-glass.jpg', 'wine-glass'));
+
+function random(){
+    return Math.floor(Math.random() * images.length); 
+};
+
+function display (){
+    image1 = random();
+    image2 = random();
+    image3 = random();
+};
