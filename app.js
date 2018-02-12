@@ -37,7 +37,18 @@ function random(){
 };
 
 function display (){
+    
     image1 = random();
+
     image2 = random();
+        while(image2===image1) {
+            random();
+        }
+
     image3 = random();
+    while(image3===image2||image1) {
+        random();
+    }
+
 };
+display();
