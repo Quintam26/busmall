@@ -28,7 +28,8 @@ const game = {
 
         this.showProduct();
     },
-    showProduct: function() {
+
+    getRandomProduct: function() {
         const section = document.getElementById('place');
         const selectedProducts = [];
         for(let i = 0; i < 3; i++) {
@@ -37,10 +38,14 @@ const game = {
             const stuff = this.product[randomNumber];
             selectedProducts.push(stuff);
 
-            console.log('img ele for product: ', stuff.render());
-            section.appendChild(stuff.render());
+            console.log('img ele for product: ', stuff.getElement());
+            section.appendChild(stuff.getElement());
         }
         console.table(selectedProducts);
+    },
+
+    showProduct: function() {
+        this.getRandomProduct();
     }
 };
 
@@ -50,7 +55,7 @@ function Product (imagePath, name) {
     this.name = name;
 }
 
-Product.prototype.render = function() {
+Product.prototype.getElement = function() {
     const ele = document.createElement('img');
     ele.src = `Images/img/${this.imagePath}`;
     ele.setAttribute('alt', this.name);
