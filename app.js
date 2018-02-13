@@ -28,14 +28,14 @@ const game = {
     },
     showProduct: function() {
         const selectedProducts = [];
-        for(let i = 0; i < 3; i++){
+        for(let i = 0; i < 3; i++) {
             const randomNumber = Math.floor(Math.random() * (this.product.length));
             console.log(randomNumber);
             const stuff = this.product[randomNumber];
             selectedProducts.push(stuff);
         }
         console.table(selectedProducts);
-        return selectedProducts;
+
     }
 };
 
@@ -44,12 +44,17 @@ function Product (imagePath, name) {
     this.imagePath = imagePath;
     this.name = name;
 }
+
 Product.prototype.render = function() {
-    const ele = document.createElement('img');
-    ele.src = `img/${this.imagePath}`;
-    ele.setAttribute('alt', this.name);
-    return ele;
+    const product = document.querySelector('div');
+    const img = document.createElement('img');
+    img.src = `img/${this.imagePath}`;
+    img.setAttribute('alt', this.name);
+    product.appendChild(img);
+    return img;
 };
+
+Product.render();
 
 game.start();
 
