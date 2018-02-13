@@ -21,7 +21,7 @@ const game = {
             new Product('sweep.jpg', 'sweep'),
             new Product('tauntaun.jpg', 'tauntaun'),
             new Product('unicorn.jpg', 'unicorn'),
-            new Product('usb.jpg', 'usb'),
+            new Product('usb.gif', 'usb'),
             new Product('water-can.jpg', 'water-can'),
             new Product('wine-glass.jpg', 'wine-glass')
         );
@@ -29,24 +29,19 @@ const game = {
         this.showProduct();
     },
     showProduct: function() {
+        const section = document.getElementById('place');
         const selectedProducts = [];
         for(let i = 0; i < 3; i++) {
             const randomNumber = Math.floor(Math.random() * (this.product.length));
             console.log(randomNumber);
             const stuff = this.product[randomNumber];
             selectedProducts.push(stuff);
+
+            console.log('img ele for product: ', stuff.render());
+            section.appendChild(stuff.render());
         }
         console.table(selectedProducts);
     }
-};
-
-Product.prototype.render = function() {
-    const table = document.querySelector('#place');
-    const img = document.createElement('img');
-    img.src = `Images/img/${this.imagePath}`;
-    img.setAttribute('alt', this.name);
-    table.appendChild(img);
-    return img;
 };
 
 function Product (imagePath, name) {
@@ -54,6 +49,13 @@ function Product (imagePath, name) {
     this.imagePath = imagePath;
     this.name = name;
 }
+
+Product.prototype.render = function() {
+    const ele = document.createElement('img');
+    ele.src = `Images/img/${this.imagePath}`;
+    ele.setAttribute('alt', this.name);
+    return ele;
+};
 
 game.start();
 
