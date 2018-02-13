@@ -27,12 +27,20 @@ const game = {
         this.showProduct();
     },
     showProduct: function() {
+        const selectedProducts = [];
+        for(let i = 0; i < 3; i++){
+            const randomNumber = Math.floor(Math.random() * (this.product.length + 1));
+            console.log(randomNumber);
+            const stuff = this.product[randomNumber];
+            selectedProducts.push(stuff);
+        }
+        console.table(selectedProducts);
 
     }
 };
 
 function Product (imagePath, imageName) {
-    this.count = 0;
+    //this.count = 0;
     this.imagePath = imagePath;
     this.imageName = imageName;
 }
