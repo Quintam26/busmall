@@ -27,6 +27,7 @@ const game = {
         this.showProduct();
     },
     showProduct: function() {
+        const section = document.getElementById('game-board');
         const selectedProducts = [];
         for(let i = 0; i < 3; i++){
             const randomNumber = Math.floor(Math.random() * (this.product.length));
@@ -34,7 +35,8 @@ const game = {
             const stuff = this.product[randomNumber];
             selectedProducts.push(stuff);
 
-            console.log('img ele for product', stuff.render());
+            console.log('img ele for product: ', stuff.render());
+            section.appendChild(stuff.render());
         }
         console.table(selectedProducts);
 
