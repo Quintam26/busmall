@@ -18,7 +18,7 @@ const game = {
             new Product('pet-sweep.jpg', 'pet-sweep'),
             new Product('scissors.jpg', 'scissors'),
             new Product('shark.jpg', 'shark'),
-            new Product('sweep.jpg', 'sweep'),
+            new Product('sweep.png', 'sweep'),
             new Product('tauntaun.jpg', 'tauntaun'),
             new Product('unicorn.jpg', 'unicorn'),
             new Product('usb.gif', 'usb'),
