@@ -1,6 +1,6 @@
 const game = {
-    product = [],
-    start: function (){
+    product: [],
+    start: function () {
 
         this.product.push(
             new Product('img/banana.jpg', 'banana'),
@@ -21,27 +21,27 @@ const game = {
             new Product('img/unicorn.jpg', 'unicorn'),
             new Product('img/usb.jpg', 'usb'),
             new Product('img/water-can.jpg', 'water-can'),
-            new Product('img/wine-glass.jpg', 'wine-glass'),
+            new Product('img/wine-glass.jpg', 'wine-glass')
         );
 
         this.showProduct();
     },
     showProduct: function() {
 
-        }
+    }
 };
 
 function Product (imagePath, imageName) {
     this.count = 0;
     this.imagePath = imagePath;
-    this.imageName = imageName;    
+    this.imageName = imageName;
 }
 
 game.start();
 
 /*
 function random(){
-    return Math.floor(Math.random() * images.length); 
+    return Math.floor(Math.random() * images.length);
 };
 
 
