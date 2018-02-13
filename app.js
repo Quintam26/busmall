@@ -31,15 +31,14 @@ const game = {
         }
 };
 
-game.start();
-
 function Product (imagePath, imageName) {
-
     this.count = 0;
     this.imagePath = imagePath;
-    this.imageName = imageName;
-    
+    this.imageName = imageName;    
 }
+
+game.start();
+
 /*
 function random(){
     return Math.floor(Math.random() * images.length); 
