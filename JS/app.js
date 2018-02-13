@@ -32,7 +32,20 @@ const game = {
         board. addEventListener('click', function () {
             console.log('it works', event.target);
 
+            const name = event.target.src;
+            for (let i = 0; i < game.product.length; i++) {
+                const product = game.product[i];
+                if (name === product.name){
+                    product.timesPicked++;
+                    console.table(name);
+                }
+            }
+
         });
+    },
+
+    tallyProduct: function() {
+
     },
 
     getRandomProduct: function() {
@@ -57,9 +70,9 @@ const game = {
 
 
 function Product (imagePath, name) {
-    //this.count = 0;
     this.imagePath = imagePath;
     this.name = name;
+    this.timesPicked = 0;
 }
 
 Product.prototype.getElement = function() {
