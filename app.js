@@ -1,3 +1,5 @@
+'use strict';
+
 const game = {
     product: [],
     start: function () {
@@ -35,9 +37,10 @@ const game = {
             selectedProducts.push(stuff);
         }
         console.table(selectedProducts);
-
     }
 };
+
+
 
 function Product (imagePath, name) {
     //this.count = 0;
@@ -46,15 +49,15 @@ function Product (imagePath, name) {
 }
 
 Product.prototype.render = function() {
-    const product = document.querySelector('div');
+    const table = document.querySelector('#place');
     const img = document.createElement('img');
     img.src = `img/${this.imagePath}`;
     img.setAttribute('alt', this.name);
-    product.appendChild(img);
+    table.appendChild(img);
     return img;
 };
 
-Product.render();
+product.render();
 
 game.start();
 
