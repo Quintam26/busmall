@@ -3,25 +3,25 @@ const game = {
     start: function () {
 
         this.product.push(
-            new Product('img/banana.jpg', 'banana'),
-            new Product('img/bathroom.jpg', 'bathroom'),
-            new Product('img/boots.jpg', 'boots'),
-            new Product('img/breakfast.jpg', 'breakfast'),
-            new Product('img/bubblegum.jpg', 'bubblegum'),
-            new Product('img/chair.jpg', 'chair'),
-            new Product('img/cthulhu.jpg', 'cthulu'),
-            new Product('img/dog-duck.jpg', 'dog-duck'),
-            new Product('img/dragon.jpg', 'dragon'),
-            new Product('img/pen.jpg', 'pen'),
-            new Product('img/pet-sweep.jpg', 'pet-sweep'),
-            new Product('img/scissors.jpg', 'scissors'),
-            new Product('img/shark.jpg', 'shark'),
-            new Product('img/sweep.jpg', 'sweep'),
-            new Product('img/tauntaun.jpg', 'tauntaun'),
-            new Product('img/unicorn.jpg', 'unicorn'),
-            new Product('img/usb.jpg', 'usb'),
-            new Product('img/water-can.jpg', 'water-can'),
-            new Product('img/wine-glass.jpg', 'wine-glass')
+            new Product('banana.jpg', 'banana'),
+            new Product('bathroom.jpg', 'bathroom'),
+            new Product('boots.jpg', 'boots'),
+            new Product('breakfast.jpg', 'breakfast'),
+            new Product('bubblegum.jpg', 'bubblegum'),
+            new Product('chair.jpg', 'chair'),
+            new Product('cthulhu.jpg', 'cthulu'),
+            new Product('dog-duck.jpg', 'dog-duck'),
+            new Product('dragon.jpg', 'dragon'),
+            new Product('pen.jpg', 'pen'),
+            new Product('pet-sweep.jpg', 'pet-sweep'),
+            new Product('scissors.jpg', 'scissors'),
+            new Product('shark.jpg', 'shark'),
+            new Product('sweep.jpg', 'sweep'),
+            new Product('tauntaun.jpg', 'tauntaun'),
+            new Product('unicorn.jpg', 'unicorn'),
+            new Product('usb.jpg', 'usb'),
+            new Product('water-can.jpg', 'water-can'),
+            new Product('wine-glass.jpg', 'wine-glass')
         );
 
         this.showProduct();
@@ -29,7 +29,7 @@ const game = {
     showProduct: function() {
         const selectedProducts = [];
         for(let i = 0; i < 3; i++){
-            const randomNumber = Math.floor(Math.random() * (this.product.length + 1));
+            const randomNumber = Math.floor(Math.random() * (this.product.length));
             console.log(randomNumber);
             const stuff = this.product[randomNumber];
             selectedProducts.push(stuff);
@@ -39,10 +39,10 @@ const game = {
     }
 };
 
-function Product (imagePath, imageName) {
+function Product (imagePath, name) {
     //this.count = 0;
     this.imagePath = imagePath;
-    this.imageName = imageName;
+    this.imageName = name;
 }
 
 game.start();
