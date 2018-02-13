@@ -40,7 +40,14 @@ const game = {
     }
 };
 
-
+Product.prototype.render = function() {
+    const table = document.querySelector('#place');
+    const img = document.createElement('img');
+    img.src = `Images/img/${this.imagePath}`;
+    img.setAttribute('alt', this.name);
+    table.appendChild(img);
+    return img;
+};
 
 function Product (imagePath, name) {
     //this.count = 0;
@@ -48,41 +55,10 @@ function Product (imagePath, name) {
     this.name = name;
 }
 
-Product.prototype.render = function() {
-    const table = document.querySelector('#place');
-    const img = document.createElement('img');
-    img.src = `img/${this.imagePath}`;
-    img.setAttribute('alt', this.name);
-    table.appendChild(img);
-    return img;
-};
-
-product.render();
-
 game.start();
 
 /*
 function random(){
     return Math.floor(Math.random() * images.length);
 };
-
-
-function display (){
-    let i = 0;
-    image1 = random();
-
-    image2 = random();
-        while(image2===image1) {
-            random();
-        }
-
-    image3 = random();
-    while(image3===image2||image1) {
-        random();
-    }
-};
-
-const image1 = document.getElementById('#image1');
-const image2 = document.getElementById('#image2');
-const image3 = document.getElementById('#image3');
 */
