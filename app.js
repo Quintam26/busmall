@@ -33,6 +33,8 @@ const game = {
             console.log(randomNumber);
             const stuff = this.product[randomNumber];
             selectedProducts.push(stuff);
+
+            console.log('img ele for product', stuff.render());
         }
         console.table(selectedProducts);
 
@@ -44,6 +46,12 @@ function Product (imagePath, name) {
     this.imagePath = imagePath;
     this.name = name;
 }
+Product.prototype.render = function() {
+    const ele = document.createElement('img');
+    ele.src = `img/${this.imagePath}`;
+    ele.setAttribute('alt', this.name);
+    return ele;
+};
 
 game.start();
 
