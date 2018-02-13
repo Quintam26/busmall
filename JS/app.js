@@ -27,6 +27,12 @@ const game = {
         );
 
         this.showProduct();
+
+        const board = document.getElementById('place');
+        board. addEventListener('click', function () {
+            console.log('it works', event.target);
+
+        });
     },
 
     getRandomProduct: function() {
@@ -49,6 +55,7 @@ const game = {
     }
 };
 
+
 function Product (imagePath, name) {
     //this.count = 0;
     this.imagePath = imagePath;
@@ -63,9 +70,3 @@ Product.prototype.getElement = function() {
 };
 
 game.start();
-
-/*
-function random(){
-    return Math.floor(Math.random() * images.length);
-};
-*/
