@@ -42,7 +42,7 @@ const game = {
 function Product (imagePath, name) {
     //this.count = 0;
     this.imagePath = imagePath;
-    this.imageName = name;
+    this.name = name;
 }
 
 game.start();
