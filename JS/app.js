@@ -41,35 +41,68 @@ const game = {
             if(filePath === game.product[i].imagePath){
                 game.product[i].timesPicked++;
 
-                game.counter ++;
-                if(game.counter >= 2){
-                    prompt('damn it');
+                if(game.counter >= 25){
+                    ;
                 }
-
+                game.createChart();
                 game.clearBoard();
                 game.showProduct();
+                game.counter ++;
 
             }
         }
+    },
+    createChart: function() {
+        const chartCanvas = document.getElementById('chart');
+        const chartCtx = chartCanvas.getContext('2d');
+
+        const names = [];
+        const timesClicked = [];
+        for(let i = 0; i < this.product.length; i++) {
+            names.push(this.product[i].name);
+            timesClicked.push(this.product[i].timesPicked);
+        }
+        console.log('names', names);
+        console.log('timeClicked', timesClicked);
+
+        new Chart(chartCtx, {
+            type: 'bar',
+            data: {
+                labels: names,
+                datasets: [{
+                    label: 'number of times picked',
+                    data: timesClicked
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+
     },
 
     getRandomProduct: function() {
         const section = document.getElementById('place');
         const selectedProducts = [];
-        for(let i = 0; i < 3; i++) {
+        while(selectedProducts.length < 3) {
             const randomNumber = Math.floor(Math.random() * (this.product.length));
             console.log(randomNumber);
             const stuff = this.product[randomNumber];
-            selectedProducts.push(stuff);
-            //if(stuff === selectedProducts[i]){
-
-            //}
-            console.log('img ele for product: ', stuff.getElement());
+            if(!selectedProducts.includes(stuff)) {
+                selectedProducts.push(stuff);
+            }
             section.appendChild(stuff.getElement());
 
         }
-        console.table(selectedProducts);
+
     },
+
 
     showProduct: function() {
 
@@ -77,17 +110,20 @@ const game = {
 
     },
 
+
     clearBoard: function() {
         const section = document.getElementById('place');
         section.innerHTML = '';
     }
 };
 
+
 function Product (imagePath, name) {
     this.imagePath = imagePath;
     this.name = name;
     this.timesPicked = 0;
 }
+
 
 Product.prototype.getElement = function() {
     const ele = document.createElement('img');
@@ -96,6 +132,7 @@ Product.prototype.getElement = function() {
     ele.addEventListener('click', game.tallyProduct);
     return ele;
 };
+
 
 game.start();
 
