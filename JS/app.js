@@ -28,24 +28,17 @@ const game = {
 
         this.showProduct();
 
-        const board = document.getElementById('place');
-        board. addEventListener('click', function () {
-            console.log('it works', event.target);
-
-            const name = event.target.src;
-            for (let i = 0; i < game.product.length; i++) {
-                const product = game.product[i];
-                if (name === product.name){
-                    product.timesPicked++;
-                    console.table(name);
-                }
-            }
-
-        });
     },
 
     tallyProduct: function() {
-
+        const productSelected = event.target.src;
+        const filePath = productSelected.split('/').pop();
+        console.log(game.product);
+        for(let i = 0; i < game.product.length; i++) {
+            if(filePath === game.product[i].imagePath){
+                game.product[i].timesPicked++;
+            }
+        }
     },
 
     getRandomProduct: function() {
@@ -79,6 +72,7 @@ Product.prototype.getElement = function() {
     const ele = document.createElement('img');
     ele.src = `Images/img/${this.imagePath}`;
     ele.setAttribute('alt', this.name);
+    ele.addEventListener('click', game.tallyProduct);
     return ele;
 };
 
