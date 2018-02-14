@@ -41,6 +41,41 @@ const game = {
         }
     },
 
+    createChart: function() {
+        const chartCanvas = document.getElementById('chart');
+        const chartCtx = chartCanvas.msGetInputContext('2d');
+
+        const names = [];
+        const timesClicked = [];
+        for(let i = 0; i < this.product.length; i++) {
+            names.push(this.product[i].name);
+            timesClicked.push(this.product[i].timesPicked);
+        }
+        console.log('names', names);
+        console.log('timeClicked', timesClicked);
+
+        /* const chart = */new Chart(chartCtx, {
+            type: 'bar',
+            data: {
+                labels: names,
+                datasets: [{
+                    label: 'number of times picked',
+                    data: timesClicked
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+
+    },
+
     getRandomProduct: function() {
         const section = document.getElementById('place');
         const selectedProducts = [];
@@ -58,9 +93,9 @@ const game = {
 
     showProduct: function() {
         this.getRandomProduct();
+
     }
 };
-
 
 function Product (imagePath, name) {
     this.imagePath = imagePath;
