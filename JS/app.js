@@ -2,6 +2,7 @@
 
 const game = {
     product: [],
+    counter: 0,
     start: function () {
 
         this.product.push(
@@ -34,13 +35,71 @@ const game = {
         const productSelected = event.target.src;
         const filePath = productSelected.split('/').pop();
         console.log(game.product);
+
         for(let i = 0; i < game.product.length; i++) {
+
             if(filePath === game.product[i].imagePath){
                 game.product[i].timesPicked++;
+
+                game.counter ++;
+                if(game.counter >= 2){
+                    prompt('damn it');
+                }
+
+                game.clearBoard();
+                game.showProduct();
+
             }
         }
     },
 
+    getRandomProduct: function() {
+        const section = document.getElementById('place');
+        const selectedProducts = [];
+        for(let i = 0; i < 3; i++) {
+            const randomNumber = Math.floor(Math.random() * (this.product.length));
+            console.log(randomNumber);
+            const stuff = this.product[randomNumber];
+            selectedProducts.push(stuff);
+            //if(stuff === selectedProducts[i]){
+
+            //}
+            console.log('img ele for product: ', stuff.getElement());
+            section.appendChild(stuff.getElement());
+
+        }
+        console.table(selectedProducts);
+    },
+
+    showProduct: function() {
+
+        this.getRandomProduct();
+
+    },
+
+    clearBoard: function() {
+        const section = document.getElementById('place');
+        section.innerHTML = '';
+    }
+};
+
+function Product (imagePath, name) {
+    this.imagePath = imagePath;
+    this.name = name;
+    this.timesPicked = 0;
+}
+
+Product.prototype.getElement = function() {
+    const ele = document.createElement('img');
+    ele.src = `Images/img/${this.imagePath}`;
+    ele.setAttribute('alt', this.name);
+    ele.addEventListener('click', game.tallyProduct);
+    return ele;
+};
+
+game.start();
+
+/*
     createChart: function() {
         const chartCanvas = document.getElementById('chart');
         const chartCtx = chartCanvas.msGetInputContext('2d');
@@ -54,7 +113,7 @@ const game = {
         console.log('names', names);
         console.log('timeClicked', timesClicked);
 
-        /* const chart = */new Chart(chartCtx, {
+        const chart = new Chart(chartCtx, {
             type: 'bar',
             data: {
                 labels: names,
@@ -75,40 +134,4 @@ const game = {
         });
 
     },
-
-    getRandomProduct: function() {
-        const section = document.getElementById('place');
-        const selectedProducts = [];
-        for(let i = 0; i < 3; i++) {
-            const randomNumber = Math.floor(Math.random() * (this.product.length));
-            console.log(randomNumber);
-            const stuff = this.product[randomNumber];
-            selectedProducts.push(stuff);
-
-            console.log('img ele for product: ', stuff.getElement());
-            section.appendChild(stuff.getElement());
-        }
-        console.table(selectedProducts);
-    },
-
-    showProduct: function() {
-        this.getRandomProduct();
-
-    }
-};
-
-function Product (imagePath, name) {
-    this.imagePath = imagePath;
-    this.name = name;
-    this.timesPicked = 0;
-}
-
-Product.prototype.getElement = function() {
-    const ele = document.createElement('img');
-    ele.src = `Images/img/${this.imagePath}`;
-    ele.setAttribute('alt', this.name);
-    ele.addEventListener('click', game.tallyProduct);
-    return ele;
-};
-
-game.start();
+    */
