@@ -5,29 +5,28 @@ const game = {
     counter: 0,
     start: function () {
 
-        {
-            this.product.push(
-                new Product('banana.jpg', 'banana'),
-                new Product('bathroom.jpg', 'bathroom'),
-                new Product('boots.jpg', 'boots'),
-                new Product('breakfast.jpg', 'breakfast'),
-                new Product('bubblegum.jpg', 'bubblegum'),
-                new Product('chair.jpg', 'chair'),
-                new Product('cthulhu.jpg', 'cthulu'),
-                new Product('dog-duck.jpg', 'dog-duck'),
-                new Product('dragon.jpg', 'dragon'),
-                new Product('pen.jpg', 'pen'),
-                new Product('pet-sweep.jpg', 'pet-sweep'),
-                new Product('scissors.jpg', 'scissors'),
-                new Product('shark.jpg', 'shark'),
-                new Product('sweep.png', 'sweep'),
-                new Product('tauntaun.jpg', 'tauntaun'),
-                new Product('unicorn.jpg', 'unicorn'),
-                new Product('usb.gif', 'usb'),
-                new Product('water-can.jpg', 'water-can'),
-                new Product('wine-glass.jpg', 'wine-glass')
-            );
-        }
+        this.product.push(
+            new Product('banana.jpg', 'Banana'),
+            new Product('bathroom.jpg', 'Bathroom'),
+            new Product('boots.jpg', 'Boots'),
+            new Product('breakfast.jpg', 'Breakfast'),
+            new Product('bubblegum.jpg', 'Bubblegum'),
+            new Product('chair.jpg', 'Chair'),
+            new Product('cthulhu.jpg', 'Cthulu'),
+            new Product('dog-duck.jpg', 'Dog duck'),
+            new Product('dragon.jpg', 'Dragon'),
+            new Product('pen.jpg', 'Pen'),
+            new Product('pet-sweep.jpg', 'Pet sweep'),
+            new Product('scissors.jpg', 'Scissors'),
+            new Product('shark.jpg', 'Shark'),
+            new Product('sweep.png', 'Sweep'),
+            new Product('tauntaun.jpg', 'Tauntaun'),
+            new Product('unicorn.jpg', 'Unicorn'),
+            new Product('usb.gif', 'USB'),
+            new Product('water-can.jpg', 'Water can'),
+            new Product('wine-glass.jpg', 'Wine glass')
+        );
+
         this.showProduct();
 
     },
@@ -42,7 +41,7 @@ const game = {
             if(filePath === game.product[i].imagePath){
                 game.product[i].timesPicked++;
 
-                if(game.counter === 4){
+                if(game.counter === 25){
                     document.getElementById('place').hidden = true;
                     document.getElementById('goAway').style.display = 'block';
                 }
