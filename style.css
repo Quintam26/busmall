@@ -4,4 +4,6 @@ img{
 }
 #goAway{
  display: none;
+ width: 500px;
+ 
 }
