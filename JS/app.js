@@ -34,7 +34,7 @@ const game = {
                 new Product('wine-glass.jpg', 'wine-glass')
             );
         }
-        this.showProduct();
+        console.log(this.showProduct());
 
     },
 
