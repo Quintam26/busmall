@@ -41,9 +41,11 @@ const game = {
             if(filePath === game.product[i].imagePath){
                 game.product[i].timesPicked++;
 
-                if(game.counter >= 25){
-                    ;
+                if(game.counter === 4){
+                    document.getElementById('place').hidden = true;
+                    document.getElementById('goAway').style.display = 'block';
                 }
+
                 game.createChart();
                 game.clearBoard();
                 game.showProduct();
@@ -91,13 +93,15 @@ const game = {
         const section = document.getElementById('place');
         const selectedProducts = [];
         while(selectedProducts.length < 3) {
-            const randomNumber = Math.floor(Math.random() * (this.product.length));
-            console.log(randomNumber);
+            const randomNumber = Math.floor(Math.random() * this.product.length);
             const stuff = this.product[randomNumber];
-            if(!selectedProducts.includes(stuff)) {
+
+            if(!selectedProducts.includes(stuff)){
                 selectedProducts.push(stuff);
+                section.appendChild(stuff.getElement());
             }
-            section.appendChild(stuff.getElement());
+
+            console.log('selected products', selectedProducts);
 
         }
 
@@ -135,40 +139,3 @@ Product.prototype.getElement = function() {
 
 
 game.start();
-
-/*
-    createChart: function() {
-        const chartCanvas = document.getElementById('chart');
-        const chartCtx = chartCanvas.msGetInputContext('2d');
-
-        const names = [];
-        const timesClicked = [];
-        for(let i = 0; i < this.product.length; i++) {
-            names.push(this.product[i].name);
-            timesClicked.push(this.product[i].timesPicked);
-        }
-        console.log('names', names);
-        console.log('timeClicked', timesClicked);
-
-        const chart = new Chart(chartCtx, {
-            type: 'bar',
-            data: {
-                labels: names,
-                datasets: [{
-                    label: 'number of times picked',
-                    data: timesClicked
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
-                    }]
-                }
-            }
-        });
-
-    },
-    */

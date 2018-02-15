@@ -2,6 +2,6 @@ img{
     width: 300px;
     margin: 10px;
 }
-#chart{
-    display: block;
+#goAway{
+ display: none;
 }
