@@ -5,13 +5,13 @@ const game = {
     counter: 0,
     start: function () {
 
-        if(localStorage('product')) {
+        /*if(localStorage('product')) {
             const product = JSON.parse(localStorage.getItem('product'));
             for(let i = 0; i < product.length; i++) {
                 const product = new Product(product[i].imagePath, product[i].name, product[i].timesPicked);
                 this.product.push('prodoct');
             }
-        } else {
+        } else*/ {
             this.product.push(
                 new Product('banana.jpg', 'banana'),
                 new Product('bathroom.jpg', 'bathroom'),
@@ -63,7 +63,7 @@ const game = {
     },
 
     end: function(){
-        this.game.removeEventListner('click');
+        this.game.removeEventListener('click');
         this.createChart();
 
         localStorage.setItem('product', JSON.stringify(this.product));
