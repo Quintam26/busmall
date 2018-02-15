@@ -54,6 +54,12 @@ const game = {
             }
         }
     },
+
+    end: function(){
+        this.game.removeEventListner('click');
+
+    },
+
     createChart: function() {
         const chartCanvas = document.getElementById('chart');
         const chartCtx = chartCanvas.getContext('2d');
