@@ -14,25 +14,25 @@ const game = {
         } else */{
 
             this.product.push(
-                new Product('banana.jpg', 'banana'),
-                new Product('bathroom.jpg', 'bathroom'),
-                new Product('boots.jpg', 'boots'),
-                new Product('breakfast.jpg', 'breakfast'),
-                new Product('bubblegum.jpg', 'bubblegum'),
-                new Product('chair.jpg', 'chair'),
-                new Product('cthulhu.jpg', 'cthulu'),
-                new Product('dog-duck.jpg', 'dog-duck'),
-                new Product('dragon.jpg', 'dragon'),
-                new Product('pen.jpg', 'pen'),
-                new Product('pet-sweep.jpg', 'pet-sweep'),
-                new Product('scissors.jpg', 'scissors'),
-                new Product('shark.jpg', 'shark'),
-                new Product('sweep.png', 'sweep'),
-                new Product('tauntaun.jpg', 'tauntaun'),
-                new Product('unicorn.jpg', 'unicorn'),
-                new Product('usb.gif', 'usb'),
-                new Product('water-can.jpg', 'water-can'),
-                new Product('wine-glass.jpg', 'wine-glass')
+                new Product('banana.jpg', 'Banana', 0),
+                new Product('bathroom.jpg', 'Bathroom', 0),
+                new Product('boots.jpg', 'Boots', 0),
+                new Product('breakfast.jpg', 'Breakfast', 0),
+                new Product('bubblegum.jpg', 'Bubblegum', 0),
+                new Product('chair.jpg', 'Chair', 0),
+                new Product('cthulhu.jpg', 'Cthulu', 0),
+                new Product('dog-duck.jpg', 'Dog duck', 0),
+                new Product('dragon.jpg', 'Dragon', 0),
+                new Product('pen.jpg', 'Pen', 0),
+                new Product('pet-sweep.jpg', 'Pet sweep', 0),
+                new Product('scissors.jpg', 'Scissors', 0),
+                new Product('shark.jpg', 'Shark', 0),
+                new Product('sweep.png', 'Sweep', 0),
+                new Product('tauntaun.jpg', 'Tauntaun', 0),
+                new Product('unicorn.jpg', 'Unicorn', 0),
+                new Product('usb.gif', 'USB', 0),
+                new Product('water-can.jpg', 'Water can', 0),
+                new Product('wine-glass.jpg', 'Wine glass', 0)
             );
         }
         console.log(this.showProduct());
@@ -117,7 +117,7 @@ const game = {
                 section.appendChild(stuff.getElement());
             }
 
-            console.log('selected products', selectedProducts);
+            //console.log('selected products', selectedProducts);
 
         }
 
