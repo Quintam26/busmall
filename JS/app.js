@@ -62,12 +62,12 @@ const game = {
         }
     },
 
-    end: function(){
+    /*end: function(){
         this.game.removeEventListener('click');
         this.createChart();
 
         localStorage.setItem('product', JSON.stringify(this.product));
-    },
+    },*/
 
     createChart: function() {
         const chartCanvas = document.getElementById('chart');
@@ -137,10 +137,10 @@ const game = {
 };
 
 
-function Product (imagePath, name, timesPicked) {
+function Product (imagePath, name) {
     this.imagePath = imagePath;
     this.name = name;
-    this.timesPicked = timesPicked;
+    this.timesPicked = 0;
 }
 
 
