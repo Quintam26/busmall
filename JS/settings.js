@@ -6,5 +6,5 @@ settingsForm.addEventListener('submit', function () {
 
     const settings = {numProduct: numProduct, numRounds: numRounds};
     localStorage.setItem('settings', JSON.stringify(settings));
-    
+
 });
