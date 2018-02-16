@@ -46,10 +46,11 @@ const game = {
                     document.getElementById('goAway').style.display = 'block';
                 }
 
-                game.createChart();
                 game.clearBoard();
                 game.showProduct();
                 game.counter ++;
+                game.end();
+                //game.createChart();
 
             }
         }
@@ -90,16 +91,23 @@ const game = {
 
     },
 
+    end: function(){
+        //this.game.removeEventListener('click');
+        this.createChart();
+
+        localStorage.setItem('product', JSON.stringify(this.product));
+    },
+
     getRandomProduct: function() {
         const section = document.getElementById('place');
         const selectedProducts = [];
         while(selectedProducts.length < 3) {
             const randomNumber = Math.floor(Math.random() * this.product.length);
             const stuff = this.product[randomNumber];
-
+            console.log(stuff);
             if(!selectedProducts.includes(stuff)){
                 selectedProducts.push(stuff);
-                section.appendChild(stuff.getElement());
+                section.appendChild(stuff.render());
             }
 
             console.log('selected products', selectedProducts);
@@ -126,7 +134,7 @@ function Product (imagePath, name) {
     this.timesPicked = 0;
 }
 
-Product.prototype.getElement = function() {
+Product.prototype.render = function() {
     const ele = document.createElement('img');
     ele.src = `Images/img/${this.imagePath}`;
     ele.setAttribute('alt', this.name);
