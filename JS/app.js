@@ -5,37 +5,36 @@ const game = {
     counter: 0,
     start: function () {
 
-        /* if(localStorage('product')) {
+        if(localStorage.getItem('product')) {
             const product = JSON.parse(localStorage.getItem('product'));
             for(let i = 0; i < product.length; i++) {
                 const product = new Product(product[i].imagePath, product[i].name, product[i].timesPicked);
-                this.product.push('prodoct');
+                this.product.push('product');
             }
-        } else */{
-
+        } else {
             this.product.push(
-                new Product('banana.jpg', 'Banana', 0),
-                new Product('bathroom.jpg', 'Bathroom', 0),
-                new Product('boots.jpg', 'Boots', 0),
-                new Product('breakfast.jpg', 'Breakfast', 0),
-                new Product('bubblegum.jpg', 'Bubblegum', 0),
-                new Product('chair.jpg', 'Chair', 0),
-                new Product('cthulhu.jpg', 'Cthulu', 0),
-                new Product('dog-duck.jpg', 'Dog duck', 0),
-                new Product('dragon.jpg', 'Dragon', 0),
-                new Product('pen.jpg', 'Pen', 0),
-                new Product('pet-sweep.jpg', 'Pet sweep', 0),
-                new Product('scissors.jpg', 'Scissors', 0),
-                new Product('shark.jpg', 'Shark', 0),
-                new Product('sweep.png', 'Sweep', 0),
-                new Product('tauntaun.jpg', 'Tauntaun', 0),
-                new Product('unicorn.jpg', 'Unicorn', 0),
-                new Product('usb.gif', 'USB', 0),
-                new Product('water-can.jpg', 'Water can', 0),
-                new Product('wine-glass.jpg', 'Wine glass', 0)
+                new Product('banana.jpg', 'banana'),
+                new Product('bathroom.jpg', 'bathroom'),
+                new Product('boots.jpg', 'boots'),
+                new Product('breakfast.jpg', 'breakfast'),
+                new Product('bubblegum.jpg', 'bubblegum'),
+                new Product('chair.jpg', 'chair'),
+                new Product('cthulhu.jpg', 'cthulu'),
+                new Product('dog-duck.jpg', 'dog-duck'),
+                new Product('dragon.jpg', 'dragon'),
+                new Product('pen.jpg', 'pen'),
+                new Product('pet-sweep.jpg', 'pet-sweep'),
+                new Product('scissors.jpg', 'scissors'),
+                new Product('shark.jpg', 'shark'),
+                new Product('sweep.png', 'sweep'),
+                new Product('tauntaun.jpg', 'tauntaun'),
+                new Product('unicorn.jpg', 'unicorn'),
+                new Product('usb.gif', 'usb'),
+                new Product('water-can.jpg', 'water-can'),
+                new Product('wine-glass.jpg', 'wine-glass')
             );
         }
-        console.log(this.showProduct());
+        this.showProduct();
 
     },
 
@@ -111,18 +110,18 @@ const game = {
         while(selectedProducts.length < 3) {
             const randomNumber = Math.floor(Math.random() * this.product.length);
             const stuff = this.product[randomNumber];
+            console.log(stuff);
 
-            if(!selectedProducts.includes(stuff)){
+            if(!selectedProducts.includes(stuff)) {
                 selectedProducts.push(stuff);
-                section.appendChild(stuff.getElement());
+                section.appendChild(stuff.render());
             }
-
-            //console.log('selected products', selectedProducts);
+                
+            //console.log('selected products', selectedProduct);
 
         }
 
     },
-
 
     showProduct: function() {
 
@@ -130,13 +129,11 @@ const game = {
 
     },
 
-
     clearBoard: function() {
         const section = document.getElementById('place');
         section.innerHTML = '';
     }
 };
-
 
 function Product (imagePath, name, timesPicked) {
     this.imagePath = imagePath;
@@ -144,14 +141,12 @@ function Product (imagePath, name, timesPicked) {
     this.timesPicked = timesPicked;
 }
 
-
-Product.prototype.getElement = function() {
+Product.prototype.render = function() {
     const ele = document.createElement('img');
     ele.src = `Images/img/${this.imagePath}`;
     ele.setAttribute('alt', this.name);
     ele.addEventListener('click', game.tallyProduct);
     return ele;
 };
-
 
 game.start();
