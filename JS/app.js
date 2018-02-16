@@ -105,6 +105,7 @@ const game = {
     },
 
     getRandomProduct: function() {
+
         const section = document.getElementById('place');
         const selectedProducts = [];
         while(selectedProducts.length < 3) {
@@ -116,7 +117,7 @@ const game = {
                 selectedProducts.push(stuff);
                 section.appendChild(stuff.render());
             }
-                
+
             //console.log('selected products', selectedProduct);
 
         }
