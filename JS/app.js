@@ -5,6 +5,14 @@ const game = {
     counter: 0,
     start: function () {
 
+        if(localStorage.getItem('settings')) {
+            const savedSettings = JSON.parse(localStorage.getItem('settings'));
+            console.log(savedSettings);
+            this.numProduct = parseInt(savedSettings.numProduct);
+            this.numRounds = parseInt(savedSettings.numRounds);
+            console.log(this);
+        }
+
         {
             this.product.push(
                 new Product('banana.jpg', 'banana'),
@@ -90,7 +98,7 @@ const game = {
         });
 
     },
-    
+
     getRandomProduct: function() {
 
         const section = document.getElementById('place');
