@@ -4,7 +4,7 @@ settingsForm.addEventListener('submit', function () {
     const numProduct = this['num-product'].value;
     const numRounds = this['num-rounds'].value;
 
-    const settings = {numProduct: numProduct, numRounds: numRounds};
+    const settings = {Product: numProduct, Rounds: numRounds};
     localStorage.setItem('settings', JSON.stringify(settings));
 
 });

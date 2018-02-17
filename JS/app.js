@@ -5,13 +5,7 @@ const game = {
     counter: 0,
     start: function () {
 
-        if(localStorage.getItem('product')) {
-            const product = JSON.parse(localStorage.getItem('product'));
-            for(let i = 0; i < product.length; i++) {
-                const product = new Product(product[i].imagePath, product[i].name, product[i].timesPicked);
-                this.product.push('product');
-            }
-        } else {
+        {
             this.product.push(
                 new Product('banana.jpg', 'banana'),
                 new Product('bathroom.jpg', 'bathroom'),
@@ -62,13 +56,6 @@ const game = {
         }
     },
 
-    end: function(){
-        this.game.removeEventListener('click');
-        this.createChart();
-
-        localStorage.setItem('product', JSON.stringify(this.product));
-    },
-
     createChart: function() {
         const chartCanvas = document.getElementById('chart');
         const chartCtx = chartCanvas.getContext('2d');
@@ -103,7 +90,7 @@ const game = {
         });
 
     },
-
+    
     getRandomProduct: function() {
 
         const section = document.getElementById('place');
@@ -136,10 +123,10 @@ const game = {
     }
 };
 
-function Product (imagePath, name, timesPicked) {
+function Product (imagePath, name) {
     this.imagePath = imagePath;
     this.name = name;
-    this.timesPicked = timesPicked;
+    this.timesPicked = 0;
 }
 
 Product.prototype.render = function() {
