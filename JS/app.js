@@ -7,10 +7,12 @@ const game = {
 
         if(localStorage.getItem('settings')) {
             const savedSettings = JSON.parse(localStorage.getItem('settings'));
-            console.log(savedSettings);
+            parseInt(savedSettings.Product);
             this.numProduct = parseInt(savedSettings.numProduct);
             this.numRounds = parseInt(savedSettings.numRounds);
             console.log(this);
+
+
         }
 
         {
@@ -50,7 +52,7 @@ const game = {
             if(filePath === game.product[i].imagePath){
                 game.product[i].timesPicked++;
 
-                if(game.counter === 4){
+                if(game.counter === game.numRounds){
                     document.getElementById('place').hidden = true;
                     document.getElementById('goAway').style.display = 'block';
                 }
@@ -103,7 +105,7 @@ const game = {
 
         const section = document.getElementById('place');
         const selectedProducts = [];
-        while(selectedProducts.length < 3) {
+        while(selectedProducts.length < this.numProduct) {
             const randomNumber = Math.floor(Math.random() * this.product.length);
             const stuff = this.product[randomNumber];
             console.log(stuff);
