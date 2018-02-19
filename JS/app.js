@@ -38,6 +38,8 @@ const game = {
                 new Product('wine-glass.jpg', 'wine-glass')
             );
         }
+
+
         this.showProduct();
 
     },
@@ -52,7 +54,9 @@ const game = {
             if(filePath === game.product[i].imagePath){
                 game.product[i].timesPicked++;
 
+
                 if(game.counter === game.numRounds){
+
                     document.getElementById('place').hidden = true;
                     document.getElementById('goAway').style.display = 'block';
                 }
@@ -61,24 +65,11 @@ const game = {
                 game.showProduct();
                 game.createChart();
                 game.counter ++;
-                //game.createList();
 
             }
         }
     },
-    /*
-    createList: function() {
-
-        for(let i = 0; i < game.product.length; i++){
-            const table = document.getElementById('Table');
-            const p = document.createElement('p');
-            table.textContent = game.product[i].name + ' was picked ' + game.product[i].timesPicked;
-            table.appendChild(p);
-
-
-        }
-    },
-*/
+  
     createChart: function() {
         const chartCanvas = document.getElementById('chart');
         const chartCtx = chartCanvas.getContext('2d');
@@ -112,6 +103,13 @@ const game = {
             }
         });
 
+    },
+
+    end: function(){
+        //this.game.removeEventListener('click');
+        this.createChart();
+
+        localStorage.setItem('product', JSON.stringify(this.product));
     },
 
     getRandomProduct: function() {
