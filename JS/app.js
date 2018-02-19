@@ -2,7 +2,7 @@
 
 const game = {
     product: [],
-    counter: 0,
+    counter: 1,
     start: function () {
 
         if(localStorage.getItem('settings')) {
@@ -57,15 +57,28 @@ const game = {
                     document.getElementById('goAway').style.display = 'block';
                 }
 
-                game.createChart();
                 game.clearBoard();
                 game.showProduct();
+                game.createChart();
                 game.counter ++;
+                //game.createList();
 
             }
         }
     },
+/*
+    createList: function() {
+        
+        for(let i = 0; i < game.product.length; i++){
+            const table = document.getElementById('Table');
+            const p = document.createElement('p');
+            table.textContent = game.product[i].name + ' was picked ' + game.product[i].timesPicked;
+            table.appendChild(p);
 
+         
+        }
+    },
+*/
     createChart: function() {
         const chartCanvas = document.getElementById('chart');
         const chartCtx = chartCanvas.getContext('2d');

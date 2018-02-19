@@ -36,6 +36,10 @@ border-radius: 5px;
 
 }
 
+#table{
+    display: inline;
+}
+
 #settings-form{
 position: absolute;
 top: 210px;
