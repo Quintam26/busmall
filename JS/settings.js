@@ -11,6 +11,6 @@ settingsForm.addEventListener('submit', function () {
     const settings2 = JSON.parse(localStorage.getItem('settings'));
     parseInt(settings.Product);
     console.log(settings2);
-    
+
 
 });
