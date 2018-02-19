@@ -1,8 +1,28 @@
-img{
-    width: 300px;
-    margin: 10px;
+body {
+background-color: rgb(6, 59, 106);
 }
+
+#place{
+background-color: white;
+position: absolute;
+top: 150px;
+right: 475px;
+border-radius: 5px;
+
+}
+
+img{
+width: 300px;
+margin: 10px;
+}
+
 #goAway{
- display: none;
- width: 500px;
+position: absolute;
+top: 150px;
+right: 725px;
+display: none;
+width: 500px;
+background-color: white;
+border-radius: 5px;
+
 }

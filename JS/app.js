@@ -113,8 +113,6 @@ const game = {
                 section.appendChild(stuff.render());
             }
 
-            //console.log('selected products', selectedProduct);
-
         }
 
     },
