@@ -1,7 +1,10 @@
 body {
 background-color: rgb(6, 59, 106);
 }
-
+h1{
+    color: white;
+    text-align: center;
+}
 .setLink{
 text-align: center;
 margin: 80px;

@@ -69,7 +69,7 @@ const game = {
             }
         }
     },
-  
+
     createChart: function() {
         const chartCanvas = document.getElementById('chart');
         const chartCtx = chartCanvas.getContext('2d');
