@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>App Settings</title>
+    </head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="skeleton.css">
+</head>
+    <body>
+        <main>
+                <div class="setLink">
+                        <a href="index.html"><button class="sButton">Home</button></a>
+                    </div>
+            <form id="settings-form">
+                <fieldset>
+                    <legend class="set">Product Settings</legend>
+                        <div>
+                            <label class="sLab" for="num-product">Number of products</label>
+                            <input class="opt" name="num-product" type="number" min="2" max="18"> 
+                            <label class="sLab" for="num-rounds">Number of rounds</label>
+                            <input class="opt" name="num-rounds" type="number" min="2" max="25"> 
+                        </div>
+                        <button id="button" type="submit">Save</button>
+                </fieldset>
+            </form>
+        </main>
+    </body>
+    <script src="JS/settings.js"></script>
+</html>

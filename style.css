@@ -1,8 +1,68 @@
-img{
-    width: 300px;
-    margin: 10px;
+body {
+background-color: rgb(6, 59, 106);
 }
+
+.setLink{
+text-align: center;
+margin: 80px;
+}
+
+.sButton{
+background-color: white;
+}
+
+#place{
+background-color: white;
+position: absolute;
+top: 210px;
+right: 475px;
+border-radius: 5px;
+}
+
+img{
+width: 300px;
+margin: 10px;
+}
+
 #goAway{
- display: none;
- width: 500px;
+position: absolute;
+top: 210px;
+right: 710px;
+display: none;
+width: 500px;
+background-color: white;
+border-radius: 5px;
+}
+
+#settings-form{
+position: absolute;
+top: 210px;
+right: 710px;
+width: 500px;
+background-color: white;
+border-radius: 5px;
+
+}
+
+.set{
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.sLab{
+   text-align: center;
+   margin: 15px;
+}
+
+.opt{
+    position: relative;
+    left: 210px;
+    top: 10px;
+}
+
+#button{
+    position: relative;
+    left: 207px;
+    top: 10px;
+    margin-top: 10px;
 }

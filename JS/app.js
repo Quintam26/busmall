@@ -2,30 +2,43 @@
 
 const game = {
     product: [],
-    counter: 0,
+    counter: 1,
     start: function () {
 
-        this.product.push(
-            new Product('banana.jpg', 'Banana'),
-            new Product('bathroom.jpg', 'Bathroom'),
-            new Product('boots.jpg', 'Boots'),
-            new Product('breakfast.jpg', 'Breakfast'),
-            new Product('bubblegum.jpg', 'Bubblegum'),
-            new Product('chair.jpg', 'Chair'),
-            new Product('cthulhu.jpg', 'Cthulu'),
-            new Product('dog-duck.jpg', 'Dog duck'),
-            new Product('dragon.jpg', 'Dragon'),
-            new Product('pen.jpg', 'Pen'),
-            new Product('pet-sweep.jpg', 'Pet sweep'),
-            new Product('scissors.jpg', 'Scissors'),
-            new Product('shark.jpg', 'Shark'),
-            new Product('sweep.png', 'Sweep'),
-            new Product('tauntaun.jpg', 'Tauntaun'),
-            new Product('unicorn.jpg', 'Unicorn'),
-            new Product('usb.gif', 'USB'),
-            new Product('water-can.jpg', 'Water can'),
-            new Product('wine-glass.jpg', 'Wine glass')
-        );
+        if(localStorage.getItem('settings')) {
+            const savedSettings = JSON.parse(localStorage.getItem('settings'));
+            parseInt(savedSettings.Product);
+            this.numProduct = parseInt(savedSettings.numProduct);
+            this.numRounds = parseInt(savedSettings.numRounds);
+            console.log(this);
+
+
+        }
+
+        {
+            this.product.push(
+                new Product('banana.jpg', 'banana'),
+                new Product('bathroom.jpg', 'bathroom'),
+                new Product('boots.jpg', 'boots'),
+                new Product('breakfast.jpg', 'breakfast'),
+                new Product('bubblegum.jpg', 'bubblegum'),
+                new Product('chair.jpg', 'chair'),
+                new Product('cthulhu.jpg', 'cthulu'),
+                new Product('dog-duck.jpg', 'dog-duck'),
+                new Product('dragon.jpg', 'dragon'),
+                new Product('pen.jpg', 'pen'),
+                new Product('pet-sweep.jpg', 'pet-sweep'),
+                new Product('scissors.jpg', 'scissors'),
+                new Product('shark.jpg', 'shark'),
+                new Product('sweep.png', 'sweep'),
+                new Product('tauntaun.jpg', 'tauntaun'),
+                new Product('unicorn.jpg', 'unicorn'),
+                new Product('usb.gif', 'usb'),
+                new Product('water-can.jpg', 'water-can'),
+                new Product('wine-glass.jpg', 'wine-glass')
+            );
+        }
+
 
         this.showProduct();
 
@@ -41,20 +54,22 @@ const game = {
             if(filePath === game.product[i].imagePath){
                 game.product[i].timesPicked++;
 
-                if(game.counter === 25){
+
+                if(game.counter === game.numRounds){
+
                     document.getElementById('place').hidden = true;
                     document.getElementById('goAway').style.display = 'block';
                 }
 
                 game.clearBoard();
                 game.showProduct();
+                game.createChart();
                 game.counter ++;
-                game.end();
 
             }
         }
     },
-
+  
     createChart: function() {
         const chartCanvas = document.getElementById('chart');
         const chartCtx = chartCanvas.getContext('2d');
@@ -98,18 +113,18 @@ const game = {
     },
 
     getRandomProduct: function() {
+
         const section = document.getElementById('place');
         const selectedProducts = [];
-        while(selectedProducts.length < 3) {
+        while(selectedProducts.length < this.numProduct) {
             const randomNumber = Math.floor(Math.random() * this.product.length);
             const stuff = this.product[randomNumber];
+            console.log(stuff);
 
-            if(!selectedProducts.includes(stuff)){
+            if(!selectedProducts.includes(stuff)) {
                 selectedProducts.push(stuff);
                 section.appendChild(stuff.render());
             }
-
-            console.log('selected products', selectedProducts);
 
         }
 
