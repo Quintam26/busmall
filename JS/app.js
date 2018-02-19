@@ -66,16 +66,16 @@ const game = {
             }
         }
     },
-/*
+    /*
     createList: function() {
-        
+
         for(let i = 0; i < game.product.length; i++){
             const table = document.getElementById('Table');
             const p = document.createElement('p');
             table.textContent = game.product[i].name + ' was picked ' + game.product[i].timesPicked;
             table.appendChild(p);
 
-         
+
         }
     },
 */
