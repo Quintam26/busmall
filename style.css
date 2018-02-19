@@ -26,3 +26,35 @@ background-color: white;
 border-radius: 5px;
 
 }
+
+#settings-form{
+position: absolute;
+top: 150px;
+right: 725px;
+width: 500px;
+background-color: white;
+border-radius: 5px;
+
+}
+
+.set{
+  margin: 0 auto;
+}
+
+.sLab{
+   text-align: center;
+   margin: 15px;
+}
+
+.opt{
+    position: relative;
+    left: 210px;
+    top: 10px;
+}
+
+#button{
+    position: relative;
+    left: 203px;
+    top: 10px;
+    margin-top: 10px;
+}
